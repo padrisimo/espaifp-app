@@ -2,20 +2,20 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { getTheme } from 'react-native-material-kit';
-import Icon from 'react-native-vector-icons/EvilIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as actions from '../actions';
 
 const theme = getTheme();
 
-const PeopleItem = props => {
+const OfertItem = props => {
   return (
     <View style={[theme.cardStyle, styles.card]}>
       <Image
-        source={{uri: '/Users/adrianfernandezchamizo/projects/crm/src/images/background.jpg'}} 
+        source={{uri: '/Users/adrianfernandezchamizo/projects/espaifp-app/src/images/stage.jpeg'}} 
         style={[theme.cardImageStyle, styles.image]} />
-      <Icon name={'user'} size={100} style={styles.icon} />
-      <Text style={[theme.cardTitleStyle, styles.title]}>{props.people.first_name} {props.people.last_name}</Text>
-      <Text style={[theme.cardActionStyle, styles.action]}>{props.people.company}</Text>
+      <Icon name={'build'} size={80} style={styles.icon} />
+      <Text style={[theme.cardTitleStyle, styles.title]}>Montaje (stage)</Text>
+      <Text style={[theme.cardActionStyle, styles.action]}>{props.people.barrio} ( {props.people.horas} h )</Text>
     </View>
   )
 }
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     top: 20,
     left: 80,
     fontSize: 24,
+    color: 'white'    
   },
   image: {
     height: 100
@@ -39,10 +40,10 @@ const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     top: 15,
-    left: 0,
+    left: 4,
     color: 'white',
     backgroundColor: 'rgba(255,255,255,0)'
   }
 });
 
-export default connect(null, actions)(PeopleItem);
+export default connect(null, actions)(OfertItem);

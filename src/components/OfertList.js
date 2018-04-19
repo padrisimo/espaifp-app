@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ListView, Text, View, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
-import PeopleItem from './PeopleItem';
+import OfertItem from './OfertItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +24,7 @@ class OfertList extends Component {
     tabBarIcon: ({ tintColor }) => (
 
       <Icon
-        name={'business'}
+        name={'work'}
         size={40}
         style={[{ color: tintColor }, styles.icon]}
       />
@@ -39,12 +39,12 @@ class OfertList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Lista de Ofertas</Text>
+        <Text style={styles.title}>Ofertas de mi gremio</Text>
         <ListView
           enableEmptySections
           dataSource={this.dataSource}
           renderRow={(rowData) =>
-            <PeopleItem people={rowData} />
+            <OfertItem people={rowData} />
           }
         />
       </View>

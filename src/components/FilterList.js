@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ListView, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import Icon from 'react-native-vector-icons/EvilIcons';
-import PeopleItem from './PeopleItem';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import OfertItemFilter from './OfertItemFilter';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingTop: 20,
     paddingLeft: 20,
+  },
+  title : {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10
   }
 });
 
@@ -20,8 +25,8 @@ class FilterList extends Component {
       tabBarIcon: ({ tintColor }) => (
 
         <Icon
-          name={'eye'}
-          size={60}
+          name={'public'}
+          size={40}
           style={{ color: tintColor }}
         />
       )
@@ -35,12 +40,12 @@ class FilterList extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text>Lista de Ofertas</Text>
+      <Text style={styles.title}>Últimas Ofertas</Text>
         <ListView 
           enableEmptySections
           dataSource={this.dataSource}
           renderRow={(rowData) => 
-            <PeopleItem people={rowData} />
+            <OfertItemFilter people={rowData} />
           }
         />
       </View>

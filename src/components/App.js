@@ -20,19 +20,19 @@ export default class App extends Component {
 
   componentWillMount() {
     firebase.initializeApp({
-      apiKey: "AIzaSyAF4ghatT8AcAkIHfdT7wJKggbg10f8mWA",
-      authDomain: "crmmobile-bff8f.firebaseapp.com",
-      databaseURL: "https://crmmobile-bff8f.firebaseio.com",
-      projectId: "crmmobile-bff8f",
-      storageBucket: "crmmobile-bff8f.appspot.com",
-      messagingSenderId: "608651749643"
+      apiKey: "AIzaSyC14FJeGJYhEm8XIZB544xjkVotUwcdjkI",
+      authDomain: "espaifp-e71ab.firebaseapp.com",
+      databaseURL: "https://espaifp-e71ab.firebaseio.com",
+      projectId: "espaifp-e71ab",
+      storageBucket: "espaifp-e71ab.appspot.com",
+      messagingSenderId: "153299311006"
     });
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ loggedIn: true });
       } else {
-        this.setState({ loggedIn: false });
+        this.setState({ loggedIn: false  });
       }
     })
   }

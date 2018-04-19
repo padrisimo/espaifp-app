@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  Image,
   View
 } from 'react-native';
 import { MKTextField, MKColor, MKButton } from 'react-native-material-kit';
@@ -9,7 +10,8 @@ import Loader from './Loader';
 import firebase from 'firebase';
 
 const LoginButton = MKButton.coloredButton()
-  .withText('LOGIN')
+  .withText('Accede')
+  .withBackgroundColor(MKColor.Green)
   .build();
 
 export default class Login extends Component {
@@ -26,11 +28,7 @@ export default class Login extends Component {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(this.onAuthSucces)
-      .catch(() => {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-          .then(this.onAuthSucces)
-          .catch(this.onAuthFailed)
-      })
+      .catch(this.onAuthFailed)
   }
 
   onAuthSucces = () => {
@@ -44,7 +42,7 @@ export default class Login extends Component {
 
   onAuthFailed = () => {
     this.setState({
-      error: 'Authentication Failed!',
+      error: 'Error, prueba otra vez.',
       loading: false
     })
   }
@@ -61,22 +59,26 @@ export default class Login extends Component {
     const { form, fieldStyles, loginButtonArea, errorMessage } = styles;
     return (
       <View style={form}>
+        <Image
+        style={{ height: 82, marginBottom: 50}}
+          source={{uri: '/Users/adrianfernandezchamizo/projects/espaifp-app/src/images/espai.png'}}
+        />
         <Text>
-          Login or Create an account
+          Accede a tu cuenta
         </Text>
         <MKTextField
           text={this.state.email}
           onTextChange={email => this.setState({ email })}
           textInputStyle={fieldStyles}
           placeholder={'Email...'}
-          tintColor={MKColor.Teal}
+          tintColor={MKColor.Green}
         />
         <MKTextField
           text={this.state.password}
           onTextChange={password => this.setState({ password })}
           textInputStyle={fieldStyles}
-          placeholder={'password...'}
-          tintColor={MKColor.Teal}
+          placeholder={'contraseña...'}
+          tintColor={MKColor.Green}
           password={true}
         />
         <Text style={errorMessage}>
