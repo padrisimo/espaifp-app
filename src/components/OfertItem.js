@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { getTheme } from 'react-native-material-kit';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -9,14 +9,20 @@ const theme = getTheme();
 
 const OfertItem = props => {
   return (
-    <View style={[theme.cardStyle, styles.card]}>
-      <Image
-        source={{uri: '/Users/adrianfernandezchamizo/projects/espaifp-app/src/images/pintura.jpg'}} 
-        style={[theme.cardImageStyle, styles.image]} />
-      <Icon name={'brush'} size={80} style={styles.icon} />
-      <Text style={[theme.cardTitleStyle, styles.title]}>Pintura</Text>
-      <Text style={[theme.cardActionStyle, styles.action]}>{props.people.barrio} ( {props.people.horas} h )</Text>
-    </View>
+    <TouchableHighlight
+      onPress={() => {
+        alert('Aquí aparecerá una pantalla con los detalles de la oferta donde te podrás inscribir')
+      }}>
+      <View style={[theme.cardStyle, styles.card]}>
+        <Image
+          source={{ uri: '/Users/adrianfernandezchamizo/projects/espaifp-app/src/images/pintura.jpg' }}
+          style={[theme.cardImageStyle, styles.image]} />
+        <Icon name={'brush'} size={80} style={styles.icon} />
+        <Text style={[theme.cardTitleStyle, styles.title]}>Pintura</Text>
+        <Text style={[theme.cardActionStyle, styles.action]}>{props.people.barrio} ( {props.people.horas} h )</Text>
+      </View>
+    </TouchableHighlight>
+
   )
 }
 
